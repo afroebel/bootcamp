@@ -33,3 +33,4 @@ def gc_map(seq, block_size, gc_thresh):
         else:
             print('done')
     print(mapped_seq)
+    return mapped_seq
