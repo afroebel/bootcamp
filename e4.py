@@ -17,6 +17,7 @@ finches_2012 = pd.read_csv('data/grant_2012.csv', comment = '#')
 # Part B: Munging
 finches_1973 = finches_1973.drop('yearband', axis=1)
 
+# Could've done what I did below with finches_1975['year'] = 1975
 # Create year Series:
 year_1973 = pd.Series(len(finches_1973)*[1973], name = 'year')
 year_1975 = pd.Series(len(finches_1975)*[1975], name = 'year')
@@ -65,6 +66,9 @@ fortis_bl = finches_all.loc[finches_all['year'] == 1987].loc[finches_all['specie
             == 'fortis', ['beak length (mm)']]
 scandens_bl = finches_all.loc[finches_all['year'] == 1987].loc[finches_all['species']
             == 'scandens', ['beak length (mm)']]
+# Problems on graphs below could be from [] on column I asked for (at end). []
+#           imply more than 1 column so could spit out 2D Data Frame instead
+#           of 1D Series for ecdf below.
 
 x_fortis_bd, y_fortis_bd = ecdf(fortis_bd)
 x_scandens_bd, y_scandens_bd = ecdf(scandens_bd)
